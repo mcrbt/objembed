@@ -1,0 +1,6 @@
+embed
+*.o
+*.t?z
+core.*
+*~
+version.txt
