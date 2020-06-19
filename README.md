@@ -19,13 +19,15 @@ plain text.
 
 As already mentioned `objembed.sh` uses `objcopy` to convert a text file
 `filename.ext` into an object file. `objcopy` adds the *linker symbols*
+
 * `_binary_filename_ext_start` and
 * `_binary_filename_ext_end`
+
 around the contents of the text file which can then be used in C source code to
 extract the text. The resulting object file can be statically linked against a C
 project by passing that file directly to the linker. Here, `filename` is the
 *basename* of the text file's path without its file name extension `ext`. That
-means the full *basename* of the text file is contained in the linker symbols
+means the *full* basename of the text file is contained in the linker symbols
 where the dot (`.`) in `filename.ext` gets replaced by an underscore (`_`)
 character: `filename_ext`. The text file is read by `objcopy` in *binary* format
 for what reason the linker symbols are prefixed with `_binary_`. `_start`, and
@@ -50,8 +52,8 @@ as well.
 
 ## Usage
 
-To simply generate an *ELF* object code file (say `object.o`) for a 64-bit
-processor architecture from a plain text file (say `text.txt`) the following
+To simply generate an *ELF* object code file `object.o` for a 64-bit
+processor architecture from a plain text file `text.txt` the following
 command is sufficient:
 
 ```
